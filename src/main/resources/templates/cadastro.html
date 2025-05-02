@@ -1,26 +1,123 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>catarse</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    </head>
-        
-    <body>
-        
-        <a href="/"> Página inicial</a>
-        <a href="/produto/cadastro"> Cadastrar novo produto</a>
-        <a href="/produto/lista"> Exibir produtos</a>
-        
-        <h1>cadastro de produtos</h1>  
-        <form method="post" th:action="@{/produto/gravar}">
-            <p>ID: <input type="hidden" th:field="${produto.id}" > </p>
-            <p>Nome:<input type="text" th:field="${produto.nome}" > </p>
-            <p>Descrição:<input type="text" th:field="${produto.descricao}" > </p>
-            <p>Estoque: <input type="number" th:field="${produto.estoque}" > </p>
-            <p>Preço:<input type="number" th:field="${produto.preco}" > </p>
-            
-            <button type="submit"> Salvar </button>
-            </form>
-    </body>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Cadastro de Produtos</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Montserrat;
+    }
+
+    body {
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    nav {
+      background-color:  #7ED3C9; 
+      padding: 15px;
+      text-align: center;
+    }
+
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    .form-wrapper {
+      background-color: #fff;
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: bold;
+      color: #444;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 16px;
+    }
+
+    button {
+      background-color: #9633C5;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 16px;
+      display: block;
+      margin: 0 auto;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+    <a href=".\index.html">Página inicial</a>
+    <a href=".\cadastro.html">Cadastrar novo produto</a>
+    <a href=".\lista.html">Exibir produtos</a>
+  </nav>
+
+  <div class="form-wrapper">
+    <h1>Cadastro de Produtos</h1>
+    <form method="post" th:action="@{/produto/gravar}">
+      <input type="hidden" th:field="${produto.id}">
+      
+      <div class="form-group">
+        <label for="nome">Nome:</label>
+        <input type="text" th:field="${produto.nome}" id="nome" required>
+      </div>
+
+      <div class="form-group">
+        <label for="descricao">Descrição:</label>
+        <input type="text" th:field="${produto.descricao}" id="descricao" required>
+      </div>
+
+      <div class="form-group">
+        <label for="estoque">Estoque:</label>
+        <input type="number" th:field="${produto.estoque}" id="estoque" required>
+      </div>
+
+      <div class="form-group">
+        <label for="preco">Preço:</label>
+        <input type="number" step="0.01" th:field="${produto.preco}" id="preco" required>
+      </div>
+
+      <button type="submit">Salvar</button>
+    </form>
+  </div>
+
+</body>
 </html>
