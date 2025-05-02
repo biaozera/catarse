@@ -1,11 +1,26 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>TODO supply a title</title>
+        <title>catarse</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
+        
     <body>
-        <div>TODO write content</div>
+        
+        <a href="/"> Página inicial</a>
+        <a href="/produto/cadastro"> Cadastrar novo produto</a>
+        <a href="/produto/lista"> Exibir produtos</a>
+        
+        <h1>cadastro de produtos</h1>  
+        <form method="post" th:action="@{/produto/gravar}">
+            <p>ID: <input type="hidden" th:field="${produto.id}" > </p>
+            <p>Nome:<input type="text" th:field="${produto.nome}" > </p>
+            <p>Descrição:<input type="text" th:field="${produto.descricao}" > </p>
+            <p>Estoque: <input type="number" th:field="${produto.estoque}" > </p>
+            <p>Preço:<input type="number" th:field="${produto.preco}" > </p>
+            
+            <button type="submit"> Salvar </button>
+            </form>
     </body>
 </html>
