@@ -65,11 +65,12 @@
 </head>
 <body>
 
-    <nav>
-        <a href=".\index.html">Página inicial</a>
-        <a href=".\cadastro.html">Cadastrar novo produto</a>
-        <a href=".\lista.html">Exibir produtos</a>
-      </nav>
+  <nav>
+    <a href="/">Página inicial</a>
+    <a href="/produto/cadastro">Cadastrar novo produto</a>
+    <a href="/produto/lista">Exibir produtos</a>
+  </nav>
+
 
   <div class="table-wrapper">
     <h1>Lista de Produtos</h1>
@@ -84,7 +85,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr th:each="produto : ${filmes}">
+        <tr th:each="produto : ${produtos}">
           <td th:text="${produto.id}"></td>
           <td th:text="${produto.nome}"></td>
           <td th:text="${produto.descricao}"></td>
