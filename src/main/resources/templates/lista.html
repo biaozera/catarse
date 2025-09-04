@@ -53,13 +53,26 @@
     th, td {
       padding: 12px 15px;
       text-align: left;
-      border-bottom: 1px solid #ddd;
     }
 
     th {
       font-weight: bold;
       color: #333;
     }
+    
+        td a {
+  background-color: #9633C5;
+  color: #fff;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 5px;
+  text-decoration: none;
+  font-size: 14px;
+  margin-right: 8px;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
 
   </style>
 </head>
@@ -91,6 +104,10 @@
           <td th:text="${produto.descricao}"></td>
           <td th:text="${produto.estoque}"></td>
           <td th:text="${produto.preco}"></td>
+<td>
+  <a class="btn-editar" th:href="@{'/produto/alterar/' + ${produto.id}}">Alterar</a>
+  <a class="btn-excluir" th:href="@{'/produto/excluir/' + ${produto.id}}">Excluir</a>
+</td>
         </tr>
       </tbody>
     </table>

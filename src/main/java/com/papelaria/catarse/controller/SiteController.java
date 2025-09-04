@@ -1,7 +1,6 @@
 
 package com.papelaria.catarse.controller;
 
-import com.papelaria.catarse.model.Preferencia;
 import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.stereotype.Controller;
@@ -21,21 +20,4 @@ public class SiteController {
        return "index";
    }
    
-   @RequestMapping("/preferencias")
-   public String preferencias(@CookieValue(name = "pref-estilo", defaultValue="claro") String tema, Model model){
-       model.addAttribute("css", tema);
-       return "preferencias"; 
-   }
-   
-   @PostMapping("/preferencias")
-   public ModelAndView gravarPreferencias(@ModelAttribute Preferencia pref, HttpServletResponse response){
-       Cookie cookiePrefEstilo = new Cookie("pref-estilo", pref.getEstilo());
-       
-       cookiePrefEstilo.setDomain("localhost");
-       cookiePrefEstilo.setHttpOnly(true);
-       cookiePrefEstilo.setMaxAge(300);
-       response.addCookie(cookiePrefEstilo);
-       
-       return new ModelAndView("redirect:/");
-   }
 }

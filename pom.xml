@@ -14,6 +14,7 @@
     <groupId>com.papelaria</groupId>
     <artifactId>catarse</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+    <packaging>war</packaging>
     <name>catarse</name>
     <description>papelaria catarse</description>
 
