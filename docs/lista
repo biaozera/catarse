@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Listagem de Produtos</title>
+  <style>
+            * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Montserrat;
+    }
+    nav {
+      background-color: #7ED3C9; 
+      padding: 15px;
+      text-align: center;
+    }
+    nav a {
+      margin: 0 15px;
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+    body {
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .table-wrapper {
+      max-width: 900px;
+      margin: 0 auto;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 0 12px rgba(0, 0, 0, 0.1);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    thead {
+      background-color: #C665F2; 
+    }
+
+    th, td {
+      padding: 12px 15px;
+      text-align: left;
+      border-bottom: 1px solid #ddd;
+    }
+
+    th {
+      font-weight: bold;
+      color: #333;
+    }
+
+  </style>
+</head>
+<body>
+
+    <nav>
+        <a href=".\index.html">Página inicial</a>
+        <a href=".\cadastro.html">Cadastrar novo produto</a>
+        <a href=".\lista.html">Exibir produtos</a>
+      </nav>
+
+  <div class="table-wrapper">
+    <h1>Lista de Produtos</h1>
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Nome</th>
+          <th>Descrição</th>
+          <th>Estoque</th>
+          <th>Preço</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr th:each="produto : ${filmes}">
+          <td th:text="${produto.id}"></td>
+          <td th:text="${produto.nome}"></td>
+          <td th:text="${produto.descricao}"></td>
+          <td th:text="${produto.estoque}"></td>
+          <td th:text="${produto.preco}"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</body>
+</html>
