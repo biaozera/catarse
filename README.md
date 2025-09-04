@@ -1,6 +1,6 @@
 # UC15PI: Papelaria Catarse
 ## Status do projeto 
-Em desenvolvimento: a iniciar
+Em desenvolvimento
 
 ## Tecnologias que serão aplicadas
 HTML, CSS, JavaSacript
